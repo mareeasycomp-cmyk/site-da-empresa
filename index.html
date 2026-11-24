@@ -1,302 +1,228 @@
 
-const features = [
-  {
-    number: "01",
-    title: "Atendimento inteligente",
-    description:
-      "Automatize respostas, tire dúvidas e ofereça atendimento aos seus clientes mesmo quando sua equipe estiver ocupada.",
-    icon: "✳",
-  },
-  {
-    number: "02",
-    title: "Vendas no automático",
-    description:
-      "Organize seus contatos, acompanhe oportunidades e automatize tarefas repetitivas do processo comercial.",
-    icon: "↗",
-  },
-  {
-    number: "03",
-    title: "Mais tempo para crescer",
-    description:
-      "Reduza o trabalho manual e concentre sua energia nas decisões que realmente fazem seu negócio avançar.",
-    icon: "◷",
-  },
-];
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MareEasyComp: automação com inteligência artificial para pequenas empresas brasileiras.">
+  <title>MareEasyComp | Automação Inteligente</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #090b0a;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1100px, 90%); margin: auto; }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+      gap: 20px;
+    }
+    .logo { font-size: 22px; font-weight: bold; }
+    .logo span, .green { color: #c5f77a; }
+    nav { display: flex; gap: 25px; color: #aaa; font-size: 14px; }
+    .button {
+      display: inline-block;
+      background: #c5f77a;
+      color: #090b0a;
+      padding: 13px 23px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: .2s;
+    }
+    .button:hover { background: #ddffae; transform: translateY(-2px); }
+    .outline { border: 1px solid #444; background: transparent; color: white; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 55px;
+      padding: 90px 0 110px;
+    }
+    .tag {
+      display: inline-block;
+      color: #c5f77a;
+      border: 1px solid #33452a;
+      background: #121a0e;
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-size: 12px;
+      margin-bottom: 25px;
+    }
+    h1 { font-size: clamp(42px, 6vw, 68px); line-height: 1.08; letter-spacing: -2px; }
+    h2 { font-size: clamp(30px, 4vw, 46px); line-height: 1.15; }
+    p { color: #aaa; }
+    .hero p { margin: 25px 0; font-size: 17px; max-width: 520px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .preview {
+      background: #111511;
+      border: 1px solid #292d29;
+      border-radius: 22px;
+      padding: 25px;
+      box-shadow: 0 25px 80px #0008;
+    }
+    .preview h3 { margin-bottom: 20px; }
+    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .stat, .task {
+      background: #191d19;
+      border: 1px solid #292d29;
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .stat strong { display: block; font-size: 28px; margin: 8px 0; }
+    .task { margin-top: 12px; display: flex; justify-content: space-between; gap: 10px; }
+    .task span { color: #c5f77a; }
+    section { padding: 90px 0; }
+    .muted { background: #0e100f; border-top: 1px solid #222; border-bottom: 1px solid #222; }
+    .intro { max-width: 650px; margin-bottom: 45px; }
+    .intro p { margin-top: 18px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      background: #111411;
+      border: 1px solid #292d29;
+      border-radius: 18px;
+      padding: 28px;
+    }
+    .card .number { color: #c5f77a; font-size: 13px; }
+    .card h3 { margin: 25px 0 12px; font-size: 20px; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+    .step-number { color: #c5f77a; font-size: 14px; }
+    .step h3 { margin: 12px 0; }
+    .contact { text-align: center; }
+    .contact p { max-width: 550px; margin: 20px auto 30px; }
+    footer { border-top: 1px solid #222; padding: 25px 0; color: #777; font-size: 13px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    @media (max-width: 750px) {
+      nav { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 60px 0; gap: 40px; }
+      .cards, .steps { grid-template-columns: 1fr; }
+      section { padding: 65px 0; }
+      h1 { letter-spacing: -1px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <a href="#" class="logo">Mare<span>Easy</span>Comp</a>
+    <nav>
+      <a href="#solucoes">Soluções</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="#contato" class="button">Começar agora ↗</a>
+  </header>
 
-const steps = [
-  ["01", "Conecte suas ferramentas", "Organize os aplicativos e processos que sua empresa já utiliza."],
-  ["02", "Configure sua automação", "Escolha uma tarefa e defina como a inteligência artificial deve executá-la."],
-  ["03", "Acompanhe os resultados", "Visualize suas automações e ajuste os processos conforme sua empresa cresce."],
-];
+  <main>
+    <section class="container hero">
+      <div>
+        <div class="tag">INTELIGÊNCIA ARTIFICIAL PARA NEGÓCIOS</div>
+        <h1>Sua empresa.<br>Menos tarefas.<br><span class="green">Mais resultados.</span></h1>
+        <p>Automatize processos, simplifique o atendimento e ganhe tempo para fazer seu negócio crescer. Tudo com inteligência artificial.</p>
+        <div class="actions">
+          <a href="#contato" class="button">Quero automatizar minha empresa ↗</a>
+          <a href="#solucoes" class="button outline">Conhecer soluções</a>
+        </div>
+      </div>
 
-export default function Home() {
-  return (
-    <main className="min-h-screen overflow-hidden bg-[#090b0a] text-white">
-      <header className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
-        <a href="#" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-lime-300 text-xl font-black text-black">
-            M
+      <div class="preview">
+        <p>MAREEASYCOMP</p>
+        <h3>Central de automações</h3>
+        <div class="stat-grid">
+          <div class="stat">
+            <p>Automações</p>
+            <strong>04</strong>
+            <span class="green">Processos configurados</span>
           </div>
-          <span className="text-lg font-semibold tracking-tight">
-            Mare<span className="text-lime-300">Easy</span>Comp
-          </span>
-        </a>
-
-        <nav className="hidden items-center gap-8 text-sm text-zinc-400 md:flex">
-          <a href="#solucoes" className="transition hover:text-white">Soluções</a>
-          <a href="#como-funciona" className="transition hover:text-white">Como funciona</a>
-          <a href="#planos" className="transition hover:text-white">Planos</a>
-        </nav>
-
-        <a
-          href="#contato"
-          className="rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium transition hover:border-lime-300 hover:text-lime-300"
-        >
-          Começar agora ↗
-        </a>
-      </header>
-
-      <section className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 pb-24 pt-20 lg:grid-cols-2 lg:px-10 lg:pb-32 lg:pt-28">
-        <div className="pointer-events-none absolute -left-40 top-10 h-96 w-96 rounded-full bg-lime-300/10 blur-[120px]" />
-
-        <div className="relative z-10">
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-lime-300/20 bg-lime-300/5 px-4 py-2 text-xs font-medium text-lime-300">
-            <span className="h-2 w-2 rounded-full bg-lime-300" />
-            INTELIGÊNCIA ARTIFICIAL PARA NEGÓCIOS
-          </div>
-
-          <h1 className="max-w-2xl text-5xl font-semibold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
-            Sua empresa.
-            <br />
-            Menos tarefas.
-            <br />
-            <span className="text-lime-300">Mais resultados.</span>
-          </h1>
-
-          <p className="mt-7 max-w-xl text-lg leading-8 text-zinc-400">
-            Automatize processos, simplifique o atendimento e ganhe tempo para
-            fazer seu negócio crescer. Tudo com inteligência artificial.
-          </p>
-
-          <div className="mt-9 flex flex-wrap gap-4">
-            <a
-              href="#contato"
-              className="rounded-full bg-lime-300 px-7 py-4 font-semibold text-black transition hover:bg-lime-200"
-            >
-              Quero automatizar minha empresa ↗
-            </a>
-            <a
-              href="#solucoes"
-              className="rounded-full border border-white/15 px-7 py-4 font-medium transition hover:border-white/40"
-            >
-              Conhecer soluções
-            </a>
-          </div>
-
-          <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-zinc-500">
-            <span>✓ Fácil de usar</span>
-            <span>✓ Feito para pequenos negócios</span>
+          <div class="stat">
+            <p>Atividades</p>
+            <strong>128</strong>
+            <p>Exemplo ilustrativo</p>
           </div>
         </div>
+        <div class="task">Atendimento ao cliente <span>Ativo</span></div>
+        <div class="task">Organização de contatos <span>Ativo</span></div>
+        <div class="task">Tarefas administrativas <span>Ativo</span></div>
+        <p style="text-align:center;font-size:12px;margin-top:15px">Prévia ilustrativa da plataforma</p>
+      </div>
+    </section>
 
-        <div className="relative mx-auto w-full max-w-lg">
-          <div className="absolute inset-0 rounded-full bg-lime-300/10 blur-[100px]" />
-
-          <div className="relative rounded-3xl border border-white/10 bg-[#111411] p-5 shadow-2xl sm:p-7">
-            <div className="flex items-center justify-between border-b border-white/10 pb-5">
-              <div>
-                <p className="text-sm text-zinc-500">MareEasyComp</p>
-                <h2 className="mt-1 text-lg font-semibold">Central de automações</h2>
-              </div>
-              <div className="rounded-full bg-lime-300/10 px-3 py-1.5 text-xs text-lime-300">
-                ● Sistema ativo
-              </div>
-            </div>
-
-            <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-zinc-400">Visão geral</span>
-                <span className="text-xs text-zinc-600">Sua empresa</span>
-              </div>
-
-              <div className="mt-5 grid grid-cols-2 gap-3">
-                <div className="rounded-xl bg-white/[0.04] p-4">
-                  <p className="text-xs text-zinc-500">Automações</p>
-                  <p className="mt-2 text-3xl font-semibold">04</p>
-                  <p className="mt-2 text-xs text-lime-300">Processos configurados</p>
-                </div>
-                <div className="rounded-xl bg-white/[0.04] p-4">
-                  <p className="text-xs text-zinc-500">Atividades</p>
-                  <p className="mt-2 text-3xl font-semibold">128</p>
-                  <p className="mt-2 text-xs text-zinc-500">Exemplo ilustrativo</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-5 space-y-3">
-              {[
-                ["Atendimento ao cliente", "Respostas inteligentes", "✓"],
-                ["Organização de contatos", "Fluxo comercial", "↗"],
-                ["Tarefas administrativas", "Processos internos", "◷"],
-              ].map(([title, subtitle, icon]) => (
-                <div
-                  key={title}
-                  className="flex items-center gap-4 rounded-xl border border-white/5 bg-white/[0.02] p-4"
-                >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-lime-300/10 text-lg text-lime-300">
-                    {icon}
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium">{title}</p>
-                    <p className="mt-1 text-xs text-zinc-500">{subtitle}</p>
-                  </div>
-                  <span className="ml-auto text-xs text-lime-300">Ativo</span>
-                </div>
-              ))}
-            </div>
-
-            <p className="mt-5 text-center text-xs text-zinc-600">
-              Prévia ilustrativa da plataforma
-            </p>
-          </div>
+    <section id="solucoes" class="muted">
+      <div class="container">
+        <div class="intro">
+          <p class="green">O QUE PODEMOS AUTOMATIZAR</p>
+          <h2>Menos trabalho repetitivo.<br>Mais espaço para crescer.</h2>
+          <p>A tecnologia deve facilitar a rotina da sua empresa, não complicar. Comece com processos simples e evolua conforme sua necessidade.</p>
         </div>
-      </section>
-
-      <section id="solucoes" className="border-y border-white/10 bg-white/[0.02] px-6 py-24 lg:px-10">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-lime-300">
-              O que podemos automatizar
-            </p>
-            <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
-              Menos trabalho repetitivo.
-              <br />
-              <span className="text-zinc-500">Mais espaço para crescer.</span>
-            </h2>
-            <p className="mt-5 leading-7 text-zinc-400">
-              A tecnologia deve facilitar a rotina da sua empresa, não
-              complicar. Comece com processos simples e evolua conforme sua
-              necessidade.
-            </p>
-          </div>
-
-          <div className="mt-14 grid gap-5 md:grid-cols-3">
-            {features.map((feature) => (
-              <article
-                key={feature.number}
-                className="rounded-2xl border border-white/10 bg-[#0d100e] p-7 transition hover:border-lime-300/30"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-zinc-600">{feature.number}</span>
-                  <span className="text-2xl text-lime-300">{feature.icon}</span>
-                </div>
-                <h3 className="mt-12 text-xl font-semibold">{feature.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-zinc-400">
-                  {feature.description}
-                </p>
-              </article>
-            ))}
-          </div>
+        <div class="cards">
+          <article class="card">
+            <span class="number">01</span>
+            <h3>Atendimento inteligente</h3>
+            <p>Automatize respostas, tire dúvidas e ofereça atendimento aos seus clientes mesmo quando sua equipe estiver ocupada.</p>
+          </article>
+          <article class="card">
+            <span class="number">02</span>
+            <h3>Vendas no automático</h3>
+            <p>Organize seus contatos, acompanhe oportunidades e automatize tarefas repetitivas do processo comercial.</p>
+          </article>
+          <article class="card">
+            <span class="number">03</span>
+            <h3>Mais tempo para crescer</h3>
+            <p>Reduza o trabalho manual e concentre sua energia nas decisões que realmente fazem seu negócio avançar.</p>
+          </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="como-funciona" className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
-        <div className="grid gap-14 lg:grid-cols-2">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-lime-300">
-              Simples do começo ao fim
-            </p>
-            <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
-              Tecnologia que trabalha a favor do seu negócio.
-            </h2>
-            <p className="mt-5 leading-7 text-zinc-400">
-              Você não precisa ser especialista em tecnologia para começar a
-              automatizar sua empresa.
-            </p>
-          </div>
-
-          <div className="space-y-8">
-            {steps.map(([number, title, description]) => (
-              <div key={number} className="flex gap-5">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-lime-300/20 text-sm font-semibold text-lime-300">
-                  {number}
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold">{title}</h3>
-                  <p className="mt-2 text-sm leading-7 text-zinc-400">
-                    {description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+    <section id="como-funciona" class="container">
+      <div class="intro">
+        <p class="green">SIMPLES DO COMEÇO AO FIM</p>
+        <h2>Tecnologia que trabalha a favor do seu negócio.</h2>
+        <p>Você não precisa ser especialista em tecnologia para começar a automatizar sua empresa.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step-number">01</span>
+          <h3>Conecte suas ferramentas</h3>
+          <p>Organize os aplicativos e processos que sua empresa já utiliza.</p>
         </div>
-      </section>
-
-      <section id="planos" className="border-y border-white/10 bg-white/[0.02] px-6 py-24 lg:px-10">
-        <div className="mx-auto max-w-7xl">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-lime-300">
-              Planos e possibilidades
-            </p>
-            <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
-              Comece do seu jeito.
-            </h2>
-            <p className="mt-5 leading-7 text-zinc-400">
-              Escolha uma solução compatível com a rotina da sua empresa.
-              Os planos e valores serão apresentados em breve.
-            </p>
-          </div>
-
-          <div className="mx-auto mt-12 max-w-3xl rounded-3xl border border-lime-300/20 bg-[#101410] p-8 sm:p-12">
-            <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-center">
-              <div>
-                <p className="text-sm text-lime-300">MareEasyComp</p>
-                <h3 className="mt-3 text-2xl font-semibold">Automação para seu negócio</h3>
-                <p className="mt-3 max-w-lg text-sm leading-7 text-zinc-400">
-                  Uma solução pensada para ajudar pequenas empresas a
-                  simplificar processos e aproveitar melhor a inteligência artificial.
-                </p>
-              </div>
-              <a
-                href="#contato"
-                className="shrink-0 rounded-full bg-lime-300 px-7 py-4 text-center font-semibold text-black transition hover:bg-lime-200"
-              >
-                Tenho interesse ↗
-              </a>
-            </div>
-          </div>
+        <div class="step">
+          <span class="step-number">02</span>
+          <h3>Configure sua automação</h3>
+          <p>Escolha uma tarefa e defina como a inteligência artificial deve executá-la.</p>
         </div>
-      </section>
-
-      <section id="contato" className="mx-auto max-w-7xl px-6 py-24 text-center lg:px-10">
-        <div className="mx-auto max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-lime-300">
-            O próximo passo é seu
-          </p>
-          <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-6xl">
-            Sua empresa está pronta para trabalhar de forma mais inteligente?
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl leading-7 text-zinc-400">
-            Conheça a MareEasyComp e descubra como a automação pode fazer
-            parte da rotina do seu negócio.
-          </p>
-          <a
-            href="mailto:MareEasyComp@gmail.com?subject=Interesse%20na%20MareEasyComp"
-            className="mt-9 inline-flex rounded-full bg-lime-300 px-8 py-4 font-semibold text-black transition hover:bg-lime-200"
-          >
-            Falar com a MareEasyComp ↗
-          </a>
+        <div class="step">
+          <span class="step-number">03</span>
+          <h3>Acompanhe os resultados</h3>
+          <p>Visualize suas automações e ajuste os processos conforme sua empresa cresce.</p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <footer className="border-t border-white/10 px-6 py-8 lg:px-10">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-sm text-zinc-500 sm:flex-row">
-          <p>© {new Date().getFullYear()} MareEasyComp. Todos os direitos reservados.</p>
-          <p>Automação inteligente para pequenos negócios brasileiros.</p>
-        </div>
-      </footer>
-    </main>
-  );
-}
-          
+    <section id="contato" class="muted contact">
+      <div class="container">
+        <p class="green">O PRÓXIMO PASSO É SEU</p>
+        <h2>Sua empresa está pronta para trabalhar de forma mais inteligente?</h2>
+        <p>Conheça a MareEasyComp e descubra como a automação pode fazer parte da rotina do seu negócio.</p>
+        <a href="mailto:MareEasyComp@gmail.com?subject=Interesse%20na%20MareEasyComp" class="button">Falar com a MareEasyComp ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> MareEasyComp. Todos os direitos reservados.</span>
+      <span>Automação inteligente para pequenos negócios brasileiros.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
